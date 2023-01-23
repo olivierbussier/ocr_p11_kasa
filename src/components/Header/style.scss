@@ -1,0 +1,25 @@
+
+
+.header {
+    .logo-kasa {
+        width: 210px;
+        height: 68px;
+        margin-bottom: 2em;
+    }
+
+    .banner {
+        width: 100%;
+        height: auto;
+        border-radius: 25px;
+        overflow: hidden;
+        img {
+            min-width: 1240px;
+            object-fit: contain;
+            //object-fit: cover;
+            width: 100%;
+        }
+    }
+
+    padding-top: 2rem;
+    width: 100%;
+}
