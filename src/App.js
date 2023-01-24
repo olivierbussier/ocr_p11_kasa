@@ -2,8 +2,10 @@ import "./App.scss";
 
 import Container from "./components/Container";
 import Header from "./components/Header";
-import Main from "./pages/Main/index.jsx";
 import Footer from "./components/Footer";
+
+import Main from "./pages/Main";
+import Error from "./pages/Error"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -14,6 +16,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path='*' element={<Error />}/>
         </Routes>
         <Footer />
       </Container>

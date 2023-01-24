@@ -1,6 +1,38 @@
 .main {
+    .banner {
+        width: 100%;
+        height: auto;
+        border-radius: 25px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .banner-image {
+            min-width: 1240px;
+            object-fit: contain;
+            //object-fit: cover;
+            width: 100%;
+        }
+        .banner-centered-text {
+            font-weight: 500;
+            font-size: 48px;
+            position: absolute;
+            color: white;
+            padding: 2em;
+
+        }
+    }
+}
+
+.container-biens {
     height: 100%;
     margin-top: 3em;
     border-radius: 25px;
     background-color: #f6f6f6;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2em;
+    flex-wrap: wrap;
 }
