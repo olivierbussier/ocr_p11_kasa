@@ -1,13 +1,30 @@
-
-
 .header {
     .logo-kasa {
         width: 210px;
         height: 68px;
         margin-bottom: 2em;
     }
-
-   
+    display: flex;
+    justify-content: space-between;
     padding-top: 2rem;
     width: 100%;
+}
+
+.nav-menu {
+    ul {
+        display: flex;
+        li {
+            list-style: none;
+            .underlined {
+                text-decoration: underline;
+            }
+            a {
+                text-decoration: none;
+                color:#FF6060;
+                padding-left: 1em;
+                font-size: 24px;
+                font-weight: 500;
+            }
+        }
+    }
 }
