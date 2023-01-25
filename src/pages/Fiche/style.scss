@@ -1,39 +1,32 @@
-.main {
-    .banner {
-        width: 100%;
-        height: auto;
-        border-radius: 25px;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        .banner-image {
-            min-width: 1240px;
-            object-fit: contain;
-            //object-fit: cover;
-            width: 100%;
-        }
-        .banner-centered-text {
-            font-weight: 500;
-            font-size: 48px;
-            position: absolute;
-            color: white;
-            padding: 2em;
+@import "../../common/variables.scss";
 
-        }
-    }
+.fiche {
+
 }
 
-.container-biens {
+.container-fiche {
     height: 100%;
-    margin-top: 3em;
     border-radius: 25px;
-    background-color: #f6f6f6;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    color: $color-primary;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 2em;
-    flex-wrap: wrap;
+    flex-direction: column;
+    .title-fiche {
+        font-size: 36px;
+        font-weight: 500;
+        padding-top: 20px;
+    }
+    .location {
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .badges {
+        margin-top: 1em;
+        display:flex;
+        gap: 1em;
+    }
+    .description-fiche {
+        display: flex;
+        gap: 3em;
+        padding-top: 2em;
+    }
 }

@@ -1,0 +1,34 @@
+.banner {
+    position: relative;
+    width: 100%;
+    height: 223px;
+    border-radius: 25px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .banner-image {
+        min-width: 1240px;
+        object-fit: cover;
+        width: 100%;
+    }
+    .banner-centered-text {
+        font-weight: 500;
+        font-size: 48px;
+        position: absolute;
+        color: white;
+        padding: 2em;
+
+    }
+    .caret-left {
+        position: absolute;
+        left: 23px;
+    }
+    .caret-right {
+        position: absolute;
+        right: 23px;
+    }
+    .hide {
+        display: none;
+    }
+}

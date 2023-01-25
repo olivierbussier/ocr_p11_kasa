@@ -1,14 +1,16 @@
 import './style.scss'
 
 import TextCollapse from '../../components/TextCollapse'
+import Banner from '../../components/Banner'
+
 
 const APropos = () => {
 
-    return <div className='main'>
-        <div className='banner'>
-            <img src='./assets/bg-img-apropos.png' className='banner-image' alt='banner kasa' />
-        </div>
-        <div className="main">
+    return <div className='apropos'>
+
+            <Banner images={['./assets/bg-img-apropos.png']} />
+
+        <div className="blabla">
             <TextCollapse title='Fiabilité'>
                 Les annonces postées sur Kasa garantissent une fiabilité totale.
                 Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes.

@@ -1,0 +1,13 @@
+@import "../../common/variables.scss";
+
+.badge {
+    width: 150px;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 25px;
+    text-align: center;
+    background-color: $color-primary;
+    color: white;
+}

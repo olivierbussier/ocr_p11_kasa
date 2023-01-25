@@ -1,3 +1,5 @@
+@import "../../common/variables.scss";
+
 .header {
     .logo-kasa {
         width: 210px;
@@ -20,7 +22,7 @@
             }
             a {
                 text-decoration: none;
-                color:#FF6060;
+                color:$color-primary;
                 padding-left: 1em;
                 font-size: 24px;
                 font-weight: 500;

@@ -1,3 +1,5 @@
+@import "../../common/variables.scss";
+
 .text-collapse {
     max-width: 1023px;
     width: 100%;
@@ -6,7 +8,7 @@
         position: relative;
         z-index: 3;
         width: 100%;
-        background-color: #FF6060;
+        background-color: $color-primary;
         border-radius: 5px;
         font-size: 24px;
         font-weight: 500;
@@ -21,17 +23,17 @@
         right: 10px;
         top: 15px;
         transition-duration: 0.5s;
-        .down {
-            transform: rotate3d(1,0,0,180deg);
-        }
+    }
+    .down {
+        transform: rotate3d(1,0,0,180deg);
     }
     .text {
         position: relative;
         top:-5px;
-        background-color: #f6f6f6;
+        background-color: $color-grey;
         font-size: 24px;
         font-weight: 400;
-        color: #FF6060;
+        color: $color-primary;
         border-radius: 0 0 5px 5px;
         padding: 0;
         width: 100%;
@@ -42,10 +44,6 @@
             padding: 20px 18px 18px 24px;
             margin: 0;
         }
-    }
-    .displayed {
-        max-height: 500px;
-        transition: max-height 1s;
     }
 }
 

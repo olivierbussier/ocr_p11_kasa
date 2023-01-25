@@ -1,16 +1,16 @@
 import './style.scss'
-import Data from '../../data/logements.json'
+
+import { fetchAll } from '../../data/fetchData'
+
 import Thumb from '../../components/Thumb'
+import Banner from '../../components/Banner'
 
 const Main = () => {
 
-    console.log(Data)
+    const Data = fetchAll()
 
     return <div className='main'>
-        <div className='banner'>
-            <img src='./assets/banner.png' className='banner-image' alt='banner kasa' />
-            <div className='banner-centered-text'>Chez vous, partout et ailleurs</div>
-        </div>
+        <Banner images={['/assets/banner.png']}>Chez vous, partout et ailleurs</Banner>
         <div className="container-biens">
             {Data.map((a, index) => <Thumb data={a} key={'thumb-' + index}/>)}
         </div>

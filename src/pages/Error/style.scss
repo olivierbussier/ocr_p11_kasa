@@ -1,10 +1,11 @@
-.error-page {
+@import "../../common/variables.scss";
+
+.error {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color:#FF6060;
+    color:$color-primary;
     .error-code {
-        //color: #FF6060;
         font-weight: 700;
         font-size: 288px;
     }
@@ -15,6 +16,6 @@
     }
     .error-action {
         text-decoration: none;
-        color:#FF6060;
+        color:$color-primary;
     }
 }

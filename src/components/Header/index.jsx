@@ -6,7 +6,7 @@ const Header = () => {
 
 
     return <div className="header">
-        <img src='./assets/logo-red.svg' className='logo-kasa' alt='Logo Kasa'/>
+        <img src='/assets/logo-red.svg' className='logo-kasa' alt='Logo Kasa'/>
         <nav className='nav-menu'>
             <ul>
                 <li><a href='/'        className={currentUrl === '/' ? 'underlined' : null}>Accueil</a></li>
