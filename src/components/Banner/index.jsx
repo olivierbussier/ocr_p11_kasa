@@ -26,6 +26,7 @@ const Banner = ({images, children, height}) => {
 
     return <div className='banner' style={{height: height }}>
                 <img src='/assets/caret-left.svg' alt='Left arrow' className={"caret-left" + hideCaret} onClick={clickLeft}/>
+                <div className='img-counter'>{(currentImage+1) + '/'+ nbImages}</div>
                 <img src={imageToDisplay} className='banner-image' alt='banner kasa' />
                 {children && <div className='banner-centered-text'>{children}</div>}
                 <img src='/assets/caret-right.svg' alt='right arrow' className={"caret-right" + hideCaret} onClick={clickRight}/>
