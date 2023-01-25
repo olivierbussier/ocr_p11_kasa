@@ -7,6 +7,7 @@ import Footer from "./components/Footer"
 import Main from "./pages/Main"
 import Error from "./pages/Error"
 import APropos from "./pages/APropos"
+import Fiche from "./pages/Fiche"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -16,9 +17,10 @@ function App() {
             <Container>
                 <Header />
                 <Routes>
-                    <Route path="/"        element={<Main />} />
-                    <Route path="/apropos" element={<APropos />} />
-                    <Route path='*'        element={<Error />}/>
+                    <Route path="/"          element={<Main />} />
+                    <Route path="/apropos"   element={<APropos />} />
+                    <Route path="/fiche/:id" element={<Fiche />} />
+                    <Route path='*'          element={<Error />}/>
                 </Routes>
                 <Footer />
             </Container>

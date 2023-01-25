@@ -1,8 +1,11 @@
 import './style.scss'
 
-const Thumb = (props) => {
+const Thumb = ({data}) => {
     return <div className='thumb'>
-        <img className='picture' src={props.data.cover} alt='Bien'/>
+        <img className='picture' src={data.cover} alt='Bien'/>
+        <div className="title">
+            {data.title}
+        </div>
     </div>
 }
 
