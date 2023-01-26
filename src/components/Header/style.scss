@@ -13,6 +13,8 @@
 }
 
 .nav-menu {
+    font-size: 24px;
+    font-weight: 500;
     ul {
         display: flex;
         li {
@@ -24,8 +26,29 @@
                 text-decoration: none;
                 color:$color-primary;
                 padding-left: 1em;
-                font-size: 24px;
-                font-weight: 500;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .header {
+        padding-top: 0.5rem;
+        .logo-kasa {
+            width: 145px;
+            margin-bottom: 0.5em;
+        }
+    }
+    .nav-menu {
+        font-size: 13px;
+        padding: 0;
+        ul {
+            padding: 0;
+            li {
+                padding: 10px;
+                a {
+                    padding: 0;
+                }
             }
         }
     }

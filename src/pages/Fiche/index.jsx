@@ -1,13 +1,14 @@
-import { useParams, redirect, Navigate } from 'react-router-dom'
+import { useParams, Navigate } from 'react-router-dom'
+import React from 'react'
 
 import Badge from '../../components/badge'
 import Banner from '../../components/Banner'
-import { fetchId } from '../../data/fetchData'
 import TextCollapse from '../../components/TextCollapse'
+import Rating from '../../components/Rating'
+
+import { fetchId } from '../../data/fetchData'
 
 import './style.scss'
-import React from 'react'
-import Rating from '../../components/Rating'
 
 const Fiche = () => {
 
@@ -20,27 +21,27 @@ const Fiche = () => {
     if (!fiche)
         return  <Navigate to="/*"/>
 
-    console.log("<Fiche:data(id)=",fiche)
+    // console.log("<Fiche:data(id)=",fiche)
 
-    return <div className='fiche'>
+    return <div className='page-fiche'>
         <Banner images={fiche.pictures} height={415}/>
         <div className="container-fiche">
             <div className="header-fiche">
-                <div className="ligne-haut">
+                <div className="col-gauche">
                     <div className="description">
                         <div className='title-fiche'>{fiche.title}</div>
                         <div className="localisation-fiche">{fiche.location}</div>
                     </div>
-                    <div className="author">
-                        <div className="author-name">{fiche.host.name}</div>
-                        <img className="author-picture" src={fiche.host.picture} alt='host'></img>
-                    </div>
-                </div>
-                <div className="ligne-bas">
                     <div className="badges">
                         {fiche.tags.map((tag, index) =>
                             <Badge key={index}>{tag}</Badge>
                         )}
+                    </div>
+                </div>
+                <div className="col-droite">
+                    <div className="author">
+                        <div className="author-name">{fiche.host.name}</div>
+                        <img className="author-picture" src={fiche.host.picture} alt='host'></img>
                     </div>
                     <div className="evaluation">
                         <Rating rating={fiche.rating} />

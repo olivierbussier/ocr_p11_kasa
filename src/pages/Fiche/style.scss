@@ -1,34 +1,47 @@
 @import "../../common/variables.scss";
 
-.fiche {
-
-}
-
-.container-fiche {
-    height: 100%;
-    border-radius: 25px;
-    color: $color-primary;
-    display: flex;
-    flex-direction: column;
-    .header-fiche {
+.page-fiche {
+    .container-fiche {
+        height: 100%;
+        border-radius: 25px;
+        color: $color-primary;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        padding-top: 20px;
-        gap:10px;
-        .ligne-haut {
+        .header-fiche {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            .title-fiche {
-                font-size: 36px;
-                font-weight: 500;
-            }
-            .author {
+            padding-top: 20px;
+            gap:10px;
+            .col-gauche {
                 display: flex;
-                gap: 10px;
-                flex-direction:row;
-                align-items: center;
+                flex-direction: column;
+                justify-content: space-between;
+                .title-fiche {
+                    font-size: 36px;
+                    font-weight: 500;
+                }
+                .location {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+                .badges {
+                    margin-top: 1em;
+                    display:flex;
+                    gap: 1em;
+                }
+            }
+            .col-droite {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                .author {
+                    display: flex;
+                    flex-direction:row;
+                    gap: 10px;
+                    align-items: center;
+                    justify-content: end;
+                }
                 .author-name {
                     width: 93px;
                     // height: 52px;
@@ -44,25 +57,33 @@
                     background-color: $color-dark-grey;
                 }
             }
-            .location {
-                font-size: 18px;
-                font-weight: 500;
-            }
         }
-        .ligne-bas {
+
+        .description-fiche {
             display: flex;
-            justify-content: space-between;
-            .badges {
-                margin-top: 1em;
-                display:flex;
-                gap: 1em;
+            gap: 3em;
+            padding-top: 2em;
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .header-fiche {
+        flex-direction: column!important;
+        .col-droite {
+            flex-direction: row-reverse!important;
+            align-items: center;
+            .author-name {
+                font-size: 12px!important;
+            }
+            .author-picture {
+                width: 32px!important;
+                height: 32px!important;
             }
         }
     }
-
     .description-fiche {
-        display: flex;
-        gap: 3em;
-        padding-top: 2em;
+        flex-direction: column;
+        gap:1em!important;
     }
 }

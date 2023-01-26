@@ -11,3 +11,13 @@
     background-color: $color-primary;
     color: white;
 }
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .badge {
+        font-size: 10px;
+        width: 84px;
+        height: 18px;
+        line-height: 18px;
+        border-radius: 5px;
+    }
+}

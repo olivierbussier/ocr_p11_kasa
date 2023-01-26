@@ -1,3 +1,5 @@
+@import "../../common/variables.scss";
+
 .banner {
     position: relative;
     width: 100%;
@@ -8,9 +10,10 @@
     justify-content: center;
     align-items: center;
     .banner-image {
-        min-width: 1240px;
+        // min-width: 1240px;
         object-fit: cover;
-        width: 100%;
+        object-position: 50% 50%;
+        // width: 100%;
     }
     .banner-centered-text {
         font-weight: 500;
@@ -37,5 +40,32 @@
         font-size: 18px;
         font-weight: 500;
         color: white;
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .banner {
+        width: 100%;
+        height: 255px!important;
+        border-radius: 10px;
+        .banner-image {
+            min-width: $breakpoint-mobile;
+            min-width: 335px;
+            min-height: 255px;
+        }
+        .banner-centered-text {
+            font-weight: 500;
+            font-size: 24px;
+        }
+        .caret-left {
+            position: absolute;
+            left: 5px;
+            height: 20px;
+        }
+        .caret-right {
+            position: absolute;
+            right: 5px;
+            height: 20px;
+        }
     }
 }

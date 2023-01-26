@@ -7,8 +7,8 @@ const Rating = ({rating}) => {
     return <div className='rating'>
         {indexes.map((e, index) =>
             index < rating
-                ? <img src="/assets/star-on.svg" className='rating-star' alt='star'/>
-                : <img src="/assets/star-off.svg" className='rating-star' alt='star'/>
+                ? <img key={'rating_' + index} src="/assets/star-on.svg" className='rating-star' alt='star'/>
+                : <img key={'rating_' + index} src="/assets/star-off.svg" className='rating-star' alt='star'/>
         )}
     </div>
 }
