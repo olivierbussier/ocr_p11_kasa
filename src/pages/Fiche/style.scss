@@ -21,7 +21,7 @@
                     font-size: 36px;
                     font-weight: 500;
                 }
-                .location {
+                .localisation-fiche {
                     font-size: 18px;
                     font-weight: 500;
                 }
@@ -40,7 +40,7 @@
                     flex-direction:row;
                     gap: 10px;
                     align-items: center;
-                    justify-content: end;
+                    justify-content: flex-end;
                 }
                 .author-name {
                     width: 93px;
@@ -68,22 +68,38 @@
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-    .header-fiche {
-        flex-direction: column!important;
-        .col-droite {
-            flex-direction: row-reverse!important;
-            align-items: center;
-            .author-name {
-                font-size: 12px!important;
+    .page-fiche {
+        .container-fiche {
+            .header-fiche {
+                flex-direction: column;
+                .col-gauche {
+                    .title-fiche {
+                        font-size: 18px;
+                    }
+                    .localisation-fiche {
+                        padding-top: 10px;
+                        font-size: 14px;
+                    }
+                    .badges {
+                        margin-top: 0.5em;
+                    }
+                }
+                .col-droite {
+                    flex-direction: row-reverse;
+                    align-items: center;
+                    .author-name {
+                        font-size: 12px;
+                    }
+                    .author-picture {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
             }
-            .author-picture {
-                width: 32px!important;
-                height: 32px!important;
+            .description-fiche {
+                flex-direction: column;
+                gap:1em;
             }
         }
-    }
-    .description-fiche {
-        flex-direction: column;
-        gap:1em!important;
     }
 }

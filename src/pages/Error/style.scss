@@ -13,9 +13,25 @@
         padding-bottom: 3em;
         font-weight: 500;
         font-size: 36px;
+        text-align: center;
     }
     .error-action {
         text-decoration: none;
         color:$color-primary;
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+    .error {
+        padding-top: 12em;
+        .error-code {
+            font-size: 96px;
+        }
+        .error-detail {
+            font-size: 18px;
+        }
+        .error-action {
+            padding-top: 6em;
+        }
     }
 }
