@@ -18,10 +18,9 @@ const TextCollapse = ({title, children}) => {
     }
 
     return <div className='text-collapse'>
-        <div className="title-text-collapse">
+        <div className="title-text-collapse" onClick={onClick}>
             <div>{title}</div>
-            {/* <img className="caret" src={etat === false ? '/assets/up.svg' : '/assets/down.svg'} alt='caret up' onClick={onClick}/> */}
-            <img className={etat === false ? "caret" : "caret down"} src='/assets/down.svg' alt='caret up' onClick={onClick}/>
+            <img className={etat === false ? "caret" : "caret down"} src='/assets/down.svg' alt='caret up'/>
         </div>
         <div ref={div} style={{maxHeight: maxHeight}} className="text">
             <p ref={p}>{children}</p>

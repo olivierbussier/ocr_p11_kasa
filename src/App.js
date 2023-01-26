@@ -1,13 +1,13 @@
 import "./App.scss";
 
 import Container from "./components/Container"
-import Header from "./components/Header"
-import Footer from "./components/Footer"
+import Header    from "./components/Header"
+import Footer    from "./components/Footer"
 
-import Main from "./pages/Main"
-import Error from "./pages/Error"
+import Main    from "./pages/Main"
+import Error   from "./pages/Error"
 import APropos from "./pages/APropos"
-import Fiche from "./pages/Fiche"
+import Fiche   from "./pages/Fiche"
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -19,7 +19,7 @@ function App() {
                 <Routes>
                     <Route path="/"          element={<Main />} />
                     <Route path="/apropos"   element={<APropos />} />
-                    <Route path="/fiche/:id" element={<Fiche />} />
+                    <Route path="/fiche/:id" element={<Fiche />} errorElement={<Error/>}/>
                     <Route path='*'          element={<Error />}/>
                 </Routes>
                 <Footer />
