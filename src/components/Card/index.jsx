@@ -1,8 +1,8 @@
 import './style.scss'
 
-const Thumb = ({data}) => {
+const Card = ({data}) => {
 
-    return <div className='thumb'>
+    return <div className='card'>
         <a href={"fiche/" + data.id}>
             <img className='picture' src={data.cover} alt='Bien'/>
             <div className="title">
@@ -12,4 +12,4 @@ const Thumb = ({data}) => {
     </div>
 }
 
-export default Thumb
+export default Card
