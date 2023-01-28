@@ -32,6 +32,7 @@ const TextCollapse = ({title, children, open = false}) => {
 
 TextCollapse.propTypes = {
     title: PropTypes.string,
+    children: PropTypes.node,
     open: PropTypes.bool
 }
 
