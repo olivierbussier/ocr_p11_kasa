@@ -3,8 +3,10 @@ import PropTypes from 'prop-types';
 
 import './style.scss'
 
+// Composants privés
+
 const Caret = ({direction, hide, onClick}) => {
-    return <img src={'/assets/caret-'+direction+'.svg'} alt={direction+' arrow'} className={"caret-"+direction + hide} onClick={onClick}/>
+    return <img src={'/assets/caret-'+direction+'.svg'} alt={direction+' arrow'} className={"caret-"+direction + (hide ? " hide" : "")} onClick={onClick}/>
 }
 const Counter = ({nbImages, currentImage}) => {
     return nbImages > 1 ? <div className='img-counter'>{(currentImage+1) + '/'+ nbImages}</div> : null
@@ -18,6 +20,8 @@ const Text = ({text}) => {
     return text && <div className='banner-centered-text'>{text}</div>
 }
 
+// Composant exporté
+
 const Banner = ({images, children, height, ident="id-banner"}) => {
 
     // Si nbimages == 1 alors bannière simple
@@ -29,7 +33,7 @@ const Banner = ({images, children, height, ident="id-banner"}) => {
 
     const [currentImage, setCurrentImage] = useState(0)
     const nbImages = img.length
-    const hideCaret = nbImages === 1 ? " hide" : ""
+    const hideCaret = nbImages === 1
 
     const clickLeft = () => {
         const newImage = currentImage - 1
