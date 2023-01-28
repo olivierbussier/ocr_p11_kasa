@@ -9,11 +9,11 @@ import Error   from "./pages/Error"
 import APropos from "./pages/APropos"
 import Fiche   from "./pages/Fiche"
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
     return (
-        <Router>
+        // <Router>
             <Container>
                 <Header />
                 <Routes>
@@ -24,7 +24,7 @@ function App() {
                 </Routes>
                 <Footer />
             </Container>
-        </Router>
+        // </Router>
     )
 }
 
