@@ -19,7 +19,7 @@ const Main = () => {
 
     return <div className='main'>
 
-        <Banner images={['/assets/banner.png']}>Chez vous, partout et ailleurs</Banner>
+        <Banner images={'/assets/banner.png'}>Chez vous, partout et ailleurs</Banner>
 
         <ContainerBiens biens={data} />
 
