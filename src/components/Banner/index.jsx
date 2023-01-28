@@ -24,33 +24,21 @@ const Text = ({text}) => {
 
 const Banner = ({images, children, height, ident="id-banner"}) => {
 
-    // Si nbimages == 1 alors bannière simple
-    // Sinon carrousel
-
-    let img=images
-    if (typeof images === 'string')
-        img = [images]
+    let img; typeof images === 'string' ? img = [images] : img = images
 
     const [currentImage, setCurrentImage] = useState(0)
     const nbImages = img.length
-    const hideCaret = nbImages === 1
 
-    const clickLeft = () => {
-        const newImage = currentImage - 1
-        newImage < 0 ? setCurrentImage(nbImages-1) : setCurrentImage(newImage)
-    }
-
-    const clickRight = () => {
-        const newImage = currentImage + 1
-        newImage >= nbImages ? setCurrentImage(0) : setCurrentImage(newImage)
+    const modulo = (pas) => {
+        setCurrentImage((currentImage === 0 && pas < 0 ? nbImages-1 : (currentImage + pas) % nbImages))
     }
 
     return <div className='banner' style={{height: height }}>
-        <Caret direction='left' hide={hideCaret} onClick={clickLeft} />
+        <Caret direction='left' hide={nbImages === 1} onClick={() => modulo(-1)} />
         <Counter nbImages={nbImages} currentImage={currentImage} />
         <Images images={img} ident={ident} show={currentImage}/>
         <Text text={children} />
-        <Caret direction='right' hide={hideCaret} onClick={clickRight} />
+        <Caret direction='right' hide={nbImages === 1} onClick={() => modulo(1)} />
     </div>
 }
 

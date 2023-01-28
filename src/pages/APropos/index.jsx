@@ -7,7 +7,7 @@ const APropos = () => {
 
     return <div className='apropos'>
 
-        <Banner images={['./assets/bg-img-apropos.png']} />
+        <Banner images={'./assets/bg-img-apropos.png'} />
 
         <div className="blabla">
 
