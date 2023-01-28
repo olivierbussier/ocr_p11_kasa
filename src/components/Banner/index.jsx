@@ -1,12 +1,12 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types';
+
 import './style.scss'
 
 const Banner = ({images, children, height}) => {
 
     // Si nbimages == 1 alors bannière simple
     // Sinon carrousel
-
-    const styleHeight = height ?? 223
 
     const [currentImage, setCurrentImage] = useState(0)
     const nbImages = images.length
@@ -33,4 +33,9 @@ const Banner = ({images, children, height}) => {
            </div>
 }
 
+Banner.propTypes = {
+    images: PropTypes.arrayOf(PropTypes.string),
+    children: PropTypes.string,
+    height: PropTypes.number
+}
 export default Banner

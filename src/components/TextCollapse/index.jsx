@@ -1,19 +1,21 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './style.scss'
 
-const TextCollapse = ({title, children}) => {
+import PropTypes from 'prop-types';
 
-    // true => affiché, caret up
-    // false => hidden, caret down
+const TextCollapse = ({title, children, open = false}) => {
 
-    const [etat, setEtat] = useState(false)
-    const [maxHeight, setMaxHeight] =  useState(0)
+    const [etat, setEtat] = useState(open)
     const p = useRef(null)
+    const [maxHeight, setMaxHeight] =  useState(0)
     const div = useRef(null)
 
+    const setHeight = (cond) => { cond ? setMaxHeight(p.current.clientHeight) : setMaxHeight(0) }
+
+    useEffect(() => { setHeight(open) }, [open])
 
     const onClick = (e) => {
-        !etat ? setMaxHeight(p.current.clientHeight) : setMaxHeight(0)
+        setHeight(!etat)
         setEtat(!etat)
     }
 
@@ -26,6 +28,11 @@ const TextCollapse = ({title, children}) => {
             <p ref={p}>{children}</p>
         </div>
     </div>
+}
+
+TextCollapse.propTypes = {
+    title: PropTypes.string,
+    open: PropTypes.bool
 }
 
 export default TextCollapse

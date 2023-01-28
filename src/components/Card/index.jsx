@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './style.scss'
 
 const Card = ({data}) => {
@@ -12,4 +13,11 @@ const Card = ({data}) => {
     </div>
 }
 
+Card.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.string,
+        cover: PropTypes.string,
+        title: PropTypes.string
+    })
+}
 export default Card
