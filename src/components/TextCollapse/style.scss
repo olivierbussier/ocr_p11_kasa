@@ -1,5 +1,7 @@
 @import "../../common/variables.scss";
 
+$duration: 0.5s;
+
 .text-collapse {
     max-width: 1023px;
     width: 100%;
@@ -22,7 +24,7 @@
         position: absolute;
         right: 10px;
         top: 15px;
-        transition-duration: 0.5s;
+        transition-duration: $duration;
     }
     .down {
         transform: rotate3d(1,0,0,180deg);
@@ -38,7 +40,7 @@
         padding: 0;
         width: 100%;
         max-height: 0;
-        transition: max-height 1s;
+        transition: max-height $duration;
         overflow: hidden;
         p {
             padding: 20px 18px 18px 24px;
@@ -58,7 +60,7 @@
             height: 16px;
             right: 10px;
             top: 8px;
-            transition-duration: 0.5s;
+            //transition-duration: 0.5s;
         }
         .text {
             font-size: 12px;
