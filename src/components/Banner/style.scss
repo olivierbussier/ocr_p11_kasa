@@ -39,11 +39,17 @@ $duration: 1s;
         position: absolute;
         left: 23px;
         z-index: 1;
+        &:hover {
+            cursor: pointer;
+        }
     }
     .caret-right {
         position: absolute;
         right: 23px;
         z-index: 1;
+        &:hover {
+            cursor: pointer;
+        }
     }
     .hide {
         display: none;
