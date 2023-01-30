@@ -27,7 +27,7 @@ const TextCollapse = ({title, children, open = false}) => {
             <img className={etat === false ? "caret" : "caret down"} src='/assets/down.svg' alt='caret up'/>
         </div>
         <div ref={div} style={{maxHeight: maxHeight}} className="text">
-            <p class="text-content" ref={p}>{children}</p>
+            <p className='text-content' ref={p}>{children}</p>
         </div>
     </div>
 }
