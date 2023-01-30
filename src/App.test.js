@@ -8,20 +8,14 @@ import {MemoryRouter} from 'react-router-dom'
 import App from './App'
 
 const query = (classe, rootElement = null) => {
-    if (!rootElement)
-        return document.querySelector(classe)
-    else
-        return rootElement.querySelector(classe)
+    return (!rootElement ? document : rootElement).querySelector(classe)
 }
 
 const queryAll = (classe, rootElement = null) => {
-    if (!rootElement)
-        return document.querySelectorAll(classe)
-    else
-        return rootElement.querySelectorAll(classe)
+    return (!rootElement ? document : rootElement).querySelectorAll(classe)
 }
 
-const text = (classe, rootElement = null) => {
+const html = (classe, rootElement = null) => {
     return query(classe, rootElement).innerHTML
 }
 
@@ -39,9 +33,9 @@ describe("Test d'un détail de bien", () => {
         const banner = query('.banner')
         expect(banner).toBeInTheDocument()
         // Titre
-        expect(text('.title-fiche')).toBe('Magnifique appartement proche Canal Saint Martin')
+        expect(html('.title-fiche')).toBe('Magnifique appartement proche Canal Saint Martin')
         // Sous-titre
-        expect(text('.localisation-fiche')).toBe('Ile de France - Paris 10e')
+        expect(html('.localisation-fiche')).toBe('Ile de France - Paris 10e')
         // Badges
         const badges = query('.badges')
         const badgeList = queryAll('.badge', badges)
@@ -49,8 +43,8 @@ describe("Test d'un détail de bien", () => {
 
         // Nom du loeur et image
         const author = query('.author')
-        expect(text('.author-name', author)).toBe('Della Case')
-        expect(text('.author-picture', author)).toBe('')
+        expect(html('.author-name', author)).toBe('Della Case')
+        expect(html('.author-picture', author)).toBe('')
         // Rating
         const rating = query('.rating')
         expect(rating).toBeInTheDocument()
@@ -172,7 +166,6 @@ describe("Test d'un détail de bien", () => {
         expect(stars.length).toBe(5)
 
         // 4 on et 1 off
-        const star1 = stars[0].attributes
         expect(stars[0].attributes.src.value).toBe('/assets/star-on.svg')
         expect(stars[1].attributes.src.value).toBe('/assets/star-on.svg')
         expect(stars[2].attributes.src.value).toBe('/assets/star-on.svg')
