@@ -8,178 +8,175 @@ import {MemoryRouter} from 'react-router-dom'
 import App from './App'
 
 const query = (classe, rootElement = null) => {
-  if (!rootElement)
-    return document.querySelector(classe)
-  else
-    return rootElement.querySelector(classe)
-
+    if (!rootElement)
+        return document.querySelector(classe)
+    else
+        return rootElement.querySelector(classe)
 }
+
 const queryAll = (classe, rootElement = null) => {
-  if (!rootElement)
-    return document.querySelectorAll(classe)
-  else
-    return rootElement.querySelectorAll(classe)
-
+    if (!rootElement)
+        return document.querySelectorAll(classe)
+    else
+        return rootElement.querySelectorAll(classe)
 }
+
 const text = (classe, rootElement = null) => {
     return query(classe, rootElement).innerHTML
 }
 
-const user = userEvent.setup();
+const user = userEvent.setup()
+
 describe("Test d'un détail de bien", () => {
+    test('des différents champs', () => {
+        render(
+          <MemoryRouter  initialEntries={['/fiche/b9123946']}>
+            <App />
+          </MemoryRouter>
+        )
 
-  test('des différents champs', () => {
-    render(
-      <MemoryRouter  initialEntries={['/fiche/b9123946']}>
-        <App />
-      </MemoryRouter>
-    )
+        // Banner
+        const banner = query('.banner')
+        expect(banner).toBeInTheDocument()
+        // Titre
+        expect(text('.title-fiche')).toBe('Magnifique appartement proche Canal Saint Martin')
+        // Sous-titre
+        expect(text('.localisation-fiche')).toBe('Ile de France - Paris 10e')
+        // Badges
+        const badges = query('.badges')
+        const badgeList = queryAll('.badge', badges)
+        expect(badgeList.length).toEqual(3)
 
-    // Banner
-    const banner = query('.banner')
-    expect(banner).toBeInTheDocument()
-    // Titre
-    expect(text('.title-fiche')).toBe('Magnifique appartement proche Canal Saint Martin')
-    // Sous-titre
-    expect(text('.localisation-fiche')).toBe('Ile de France - Paris 10e')
-    // Badges
-    const badges = query('.badges')
-    const badgeList = queryAll('.badge', badges)
-    expect(badgeList.length).toEqual(3)
+        // Nom du loeur et image
+        const author = query('.author')
+        expect(text('.author-name', author)).toBe('Della Case')
+        expect(text('.author-picture', author)).toBe('')
+        // Rating
+        const rating = query('.rating')
+        expect(rating).toBeInTheDocument()
 
-    // Nom du loeur et image
-    const author = query('.author')
-    expect(text('.author-name', author)).toBe('Della Case')
-    expect(text('.author-picture', author)).toBe('')
-    // Rating
-    const rating = query('.rating')
-    expect(rating).toBeInTheDocument()
+        // Description et Equipements
+        const descr = queryAll('.text-collapse')
+        expect(descr.length).toBe(2)
+    })
 
-    // Description et Equipements
-    const descr = queryAll('.text-collapse')
-    expect(descr.length).toBe(2)
+    test('Banner tests', async () => {
+        render(
+            <MemoryRouter  initialEntries={['/fiche/b9123946']}>
+              <App />
+            </MemoryRouter>
+        )
 
-  })
+        const leftCaret = screen.getByAltText('left arrow')
+        const rightCaret = screen.getByAltText('right arrow')
+        const images = queryAll('.banner-image')
 
-  test('Banner tests', async () => {
-    render(
-      <MemoryRouter  initialEntries={['/fiche/b9123946']}>
-        <App />
-      </MemoryRouter>
-    );
+        // Il doit y avoir 6 images sur cette fiche
+        expect(images.length).toBe(6)
 
-    const leftCaret = screen.getByAltText('left arrow')
-    const rightCaret = screen.getByAltText('right arrow')
-    const images = queryAll('.banner-image')
+        // La 1ere image doit avoir la classe 'show'
+        expect(images[0].classList).toContain('show')
+        expect(images[1].classList).not.toContain('show')
 
-    // Il doit y avoir 6 images sur cette fiche
-    expect(images.length).toBe(6)
+        // Click image précédente
+        await user.click(leftCaret)
 
-    // La 1ere image doit avoir la classe 'show'
-    expect(images[0].classList).toContain('show')
-    expect(images[1].classList).not.toContain('show')
+        // On doit afficher la derniere image
 
-    // Click image précédente
-    await user.click(leftCaret)
+        for (let i=0;i<5;i++)
+            expect(images[i].classList).not.toContain('show')
+        expect(images[5].classList).toContain('show')
 
-    // On doit afficher la derniere image
+        // Deux click image suivante
+        await user.click(rightCaret)
+        await user.click(rightCaret)
 
-    for (let i=0;i<5;i++)
-      expect(images[i].classList).not.toContain('show')
-    expect(images[5].classList).toContain('show')
+        // 2eme image visible
+        expect(images[0].classList).not.toContain('show')
+        expect(images[1].classList).toContain('show')
+        for (let i=2;i<5;i++)
+            expect(images[i].classList).not.toContain('show')
 
-    // Deux click image suivante
-    await user.click(rightCaret)
-    await user.click(rightCaret)
+          // 4 click image suivante
+        await user.click(rightCaret)
+        await user.click(rightCaret)
+        await user.click(rightCaret)
+        await user.click(rightCaret)
 
-    // 2eme image visible
-    expect(images[0].classList).not.toContain('show')
-    expect(images[1].classList).toContain('show')
-    for (let i=2;i<5;i++)
-      expect(images[i].classList).not.toContain('show')
+        // 6eme image visible
+        for (let i=0;i<5;i++)
+            expect(images[i].classList).not.toContain('show')
+        expect(images[5].classList).toContain('show')
 
-      // 4 click image suivante
-    await user.click(rightCaret)
-    await user.click(rightCaret)
-    await user.click(rightCaret)
-    await user.click(rightCaret)
+        // Click image suivante
+        await user.click(rightCaret)
 
-    // 6eme image visible
-    for (let i=0;i<5;i++)
-      expect(images[i].classList).not.toContain('show')
-    expect(images[5].classList).toContain('show')
+        // 1ere image visible
+        expect(images[0].classList).toContain('show')
+        for (let i=1;i<5;i++)
+            expect(images[i].classList).not.toContain('show')
+    })
 
-    // Click image suivante
-    await user.click(rightCaret)
+    test('TextCollapse tests', async () => {
+        render(
+            <MemoryRouter  initialEntries={['/fiche/b9123946']}>
+              <App />
+            </MemoryRouter>
+        )
 
-    // 1ere image visible
-    expect(images[0].classList).toContain('show')
-    for (let i=1;i<5;i++)
-      expect(images[i].classList).not.toContain('show')
+        expect(screen.getByText(/Magnifique appartement proche Canal Saint Martin/i)).toBeInTheDocument()
 
-  })
+        // 1er TextCollapse
+        const textCollapse = queryAll('.text-collapse')
 
-  test('TextCollapse tests', async () => {
-    render(
-      <MemoryRouter  initialEntries={['/fiche/b9123946']}>
-        <App />
-      </MemoryRouter>
-    );
+        // Il doit y avoir 6 images sur cette fiche
+        expect(textCollapse.length).toBe(2)
 
-    expect(screen.getByText(/Magnifique appartement proche Canal Saint Martin/i)).toBeInTheDocument();
+        const testCollapse = textCollapse[0]
 
-    // 1er TextCollapse
-    const textCollapse = queryAll('.text-collapse')
+        const title = query('.title-text-collapse', testCollapse)
+        const text  = query('.text', testCollapse)
+        const content = query('.text-content', testCollapse)
 
-    // Il doit y avoir 6 images sur cette fiche
-    expect(textCollapse.length).toBe(2)
+        expect(text.attributes[0].name).toBe('style')
+        expect(text.attributes[0].value).toBe('max-height: 0;')
 
-    const testCollapse = textCollapse[0]
+        jest.spyOn(content, 'clientHeight', 'get')
+            .mockImplementation(() => {
+                return 400
+            })
 
-    const title = query('.title-text-collapse', testCollapse)
-    const text  = query('.text', testCollapse)
-    const content = query('.text-content', testCollapse)
+        await user.click(title)
+        // await user.click(title)
 
-    expect(text.attributes[0].name).toBe('style')
-    expect(text.attributes[0].value).toBe('max-height: 0;')
+        await waitFor(() => expect(text.attributes[0].name).toBe('style'))
+        await waitFor(() => expect(text.attributes[0].value).toBe('max-height: 400px;'))
+    })
 
-    jest
-    .spyOn(content, 'clientHeight', 'get')
-    .mockImplementation(() => {
-      return 400
-    });
+    test('Rating tests', async () => {
+        render(
+            <MemoryRouter  initialEntries={['/fiche/b9123946']}>
+              <App />
+            </MemoryRouter>
+        )
 
-    await user.click(title)
-    // await user.click(title)
+        // 1er TextCollapse
+        const ratings = queryAll('.rating')
 
-    await waitFor(() => expect(text.attributes[0].name).toBe('style'))
-    await waitFor(() => expect(text.attributes[0].value).toBe('max-height: 400px;'))
-  });
+        // Il doit y avoir 1 rating
+        expect(ratings.length).toBe(1)
+        const rating = ratings[0]
 
-  test('Rating tests', async () => {
-    render(
-      <MemoryRouter  initialEntries={['/fiche/b9123946']}>
-        <App />
-      </MemoryRouter>
-    );
+        const stars = queryAll('.rating-star', rating)
 
-    // 1er TextCollapse
-    const ratings = queryAll('.rating')
+        expect(stars.length).toBe(5)
 
-    // Il doit y avoir 1 rating
-    expect(ratings.length).toBe(1)
-    const rating = ratings[0]
-
-    const stars = queryAll('.rating-star', rating)
-
-    expect(stars.length).toBe(5)
-
-    // 4 on et 1 off
-    const star1 = stars[0].attributes
-    expect(stars[0].attributes.src.value).toBe('/assets/star-on.svg')
-    expect(stars[1].attributes.src.value).toBe('/assets/star-on.svg')
-    expect(stars[2].attributes.src.value).toBe('/assets/star-on.svg')
-    expect(stars[3].attributes.src.value).toBe('/assets/star-on.svg')
-    expect(stars[4].attributes.src.value).toBe('/assets/star-off.svg')
-  });
+        // 4 on et 1 off
+        const star1 = stars[0].attributes
+        expect(stars[0].attributes.src.value).toBe('/assets/star-on.svg')
+        expect(stars[1].attributes.src.value).toBe('/assets/star-on.svg')
+        expect(stars[2].attributes.src.value).toBe('/assets/star-on.svg')
+        expect(stars[3].attributes.src.value).toBe('/assets/star-on.svg')
+        expect(stars[4].attributes.src.value).toBe('/assets/star-off.svg')
+    })
 })
