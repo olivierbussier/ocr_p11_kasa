@@ -1,29 +1,29 @@
 @import "../../common/variables.scss";
 
 .main {
-    .container-biens {
-        height: 100%;
-        margin-top: 3em;
-        border-radius: 25px;
-        background-color: $color-grey;
-        padding-top: 2em;
-        padding-bottom: 2em;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        gap: 2em;
-        flex-wrap: wrap;
-    }
+  .container-biens {
+    height: 100%;
+    margin-top: 3em;
+    border-radius: 25px;
+    background-color: $color-grey;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 2em;
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-    .main {
-        gap: 10px!important;
-        .container-biens {
-            margin-top: 0.5em;
-            background-color: white;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
+  .main {
+    gap: 10px !important;
+    .container-biens {
+      margin-top: 0.5em;
+      background-color: white;
+      padding-top: 0;
+      padding-bottom: 0;
     }
+  }
 }
