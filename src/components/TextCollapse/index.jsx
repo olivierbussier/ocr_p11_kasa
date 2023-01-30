@@ -10,7 +10,9 @@ const TextCollapse = ({title, children, open = false}) => {
     const [maxHeight, setMaxHeight] =  useState(0)
     const div = useRef(null)
 
-    const setHeight = (cond) => { cond ? setMaxHeight(p.current.clientHeight) : setMaxHeight(0) }
+    const setHeight = (cond) => {
+         cond ? setMaxHeight(p.current.clientHeight) : setMaxHeight(0)
+    }
 
     useEffect(() => { setHeight(open) }, [open])
 
@@ -25,7 +27,7 @@ const TextCollapse = ({title, children, open = false}) => {
             <img className={etat === false ? "caret" : "caret down"} src='/assets/down.svg' alt='caret up'/>
         </div>
         <div ref={div} style={{maxHeight: maxHeight}} className="text">
-            <p ref={p}>{children}</p>
+            <p class="text-content" ref={p}>{children}</p>
         </div>
     </div>
 }

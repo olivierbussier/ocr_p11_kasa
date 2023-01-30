@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
 import './style.scss'
+import { Link } from 'react-router-dom';
 
 const Card = ({data}) => {
 
     return <div className='card'>
-        <a href={"fiche/" + data.id}>
+        <Link to={"fiche/" + data.id} data-testid={data.id}>
             <img className='picture' src={data.cover} alt='Bien'/>
             <div className="title">
                 {data.title}
             </div>
-        </a>
+        </Link>
     </div>
 }
 

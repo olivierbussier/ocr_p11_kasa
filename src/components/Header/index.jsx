@@ -1,4 +1,5 @@
 import './style.scss'
+import {Link} from 'react-router-dom'
 
 const Header = () => {
 
@@ -9,8 +10,8 @@ const Header = () => {
         <img src='/assets/logo-red.svg' className='logo-kasa' alt='Logo Kasa'/>
         <nav className='nav-menu'>
             <ul>
-                <li><a href='/'        className={currentUrl === '/' ? 'underlined' : null}>Accueil</a></li>
-                <li><a href='/apropos' className={currentUrl === '/apropos' ? 'underlined' : null}>A Propos</a></li>
+                <li><Link to='/' className={currentUrl === '/' ? 'underlined' : null}>Accueil</Link></li>
+                <li><Link to='/apropos' className={currentUrl === '/apropos' ? 'underlined' : null}>A Propos</Link></li>
             </ul>
         </nav>
     </div>
