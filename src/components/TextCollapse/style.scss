@@ -3,71 +3,71 @@
 $duration: 0.5s;
 
 .text-collapse {
-    max-width: 1023px;
-    width: 100%;
+  max-width: 1023px;
+  width: 100%;
+  position: relative;
+  .title-text-collapse {
     position: relative;
-    .title-text-collapse {
-        position: relative;
-        z-index: 3;
-        width: 100%;
-        background-color: $color-primary;
-        border-radius: 5px;
-        font-size: 24px;
-        font-weight: 500;
-        color: white;
-        line-height: 34px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        text-align: center;
+    z-index: 3;
+    width: 100%;
+    background-color: $color-primary;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 500;
+    color: white;
+    line-height: 34px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+  }
+  .caret {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    transition-duration: $duration;
+  }
+  .down {
+    transform: rotate3d(1, 0, 0, 180deg);
+  }
+  .text {
+    position: relative;
+    top: -5px;
+    background-color: $color-grey;
+    font-size: 24px;
+    font-weight: 400;
+    color: $color-primary;
+    border-radius: 0 0 5px 5px;
+    padding: 0;
+    width: 100%;
+    max-height: 0;
+    transition: max-height $duration;
+    overflow: hidden;
+    p {
+      padding: 20px 18px 18px 24px;
+      margin: 0;
     }
-    .caret {
-        position: absolute;
-        right: 10px;
-        top: 15px;
-        transition-duration: $duration;
-    }
-    .down {
-        transform: rotate3d(1,0,0,180deg);
-    }
-    .text {
-        position: relative;
-        top:-5px;
-        background-color: $color-grey;
-        font-size: 24px;
-        font-weight: 400;
-        color: $color-primary;
-        border-radius: 0 0 5px 5px;
-        padding: 0;
-        width: 100%;
-        max-height: 0;
-        transition: max-height $duration;
-        overflow: hidden;
-        p {
-            padding: 20px 18px 18px 24px;
-            margin: 0;
-        }
-    }
+  }
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-    .text-collapse {
-        .title-text-collapse {
-            font-size: 13px;
-            line-height: 18px;
-        }
-        .caret {
-            width: 9px;
-            height: 16px;
-            right: 10px;
-            top: 8px;
-            //transition-duration: 0.5s;
-        }
-        .text {
-            font-size: 12px;
-            p {
-                line-height: 17px;
-                padding: 15px 6px 5px 11px;
-            }
-        }
+  .text-collapse {
+    .title-text-collapse {
+      font-size: 13px;
+      line-height: 18px;
     }
+    .caret {
+      width: 9px;
+      height: 16px;
+      right: 10px;
+      top: 8px;
+      //transition-duration: 0.5s;
+    }
+    .text {
+      font-size: 12px;
+      p {
+        line-height: 17px;
+        padding: 15px 6px 5px 11px;
+      }
+    }
+  }
 }

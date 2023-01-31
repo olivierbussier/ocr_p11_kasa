@@ -1,37 +1,37 @@
 @import "../../common/variables.scss";
 
 .page-error {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color:$color-primary;
-    .error-code {
-        font-weight: 700;
-        font-size: 288px;
-    }
-    .error-detail {
-        padding-bottom: 3em;
-        font-weight: 500;
-        font-size: 36px;
-        text-align: center;
-    }
-    .error-action {
-        text-decoration: none;
-        color:$color-primary;
-    }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $color-primary;
+  .error-code {
+    font-weight: 700;
+    font-size: 288px;
+  }
+  .error-detail {
+    padding-bottom: 3em;
+    font-weight: 500;
+    font-size: 36px;
+    text-align: center;
+  }
+  .error-action {
+    text-decoration: none;
+    color: $color-primary;
+  }
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-    .error {
-        padding-top: 12em;
-        .error-code {
-            font-size: 96px;
-        }
-        .error-detail {
-            font-size: 18px;
-        }
-        .error-action {
-            padding-top: 6em;
-        }
+  .error {
+    padding-top: 12em;
+    .error-code {
+      font-size: 96px;
     }
+    .error-detail {
+      font-size: 18px;
+    }
+    .error-action {
+      padding-top: 6em;
+    }
+  }
 }

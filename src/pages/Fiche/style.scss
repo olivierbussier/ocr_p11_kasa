@@ -1,105 +1,105 @@
 @import "../../common/variables.scss";
 
 .page-fiche {
-    .container-fiche {
-        height: 100%;
-        border-radius: 25px;
-        color: $color-primary;
+  .container-fiche {
+    height: 100%;
+    border-radius: 25px;
+    color: $color-primary;
+    display: flex;
+    flex-direction: column;
+    .header-fiche {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-top: 20px;
+      gap: 10px;
+      .col-gauche {
         display: flex;
         flex-direction: column;
-        .header-fiche {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            padding-top: 20px;
-            gap:10px;
-            .col-gauche {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                .title-fiche {
-                    font-size: 36px;
-                    font-weight: 500;
-                }
-                .localisation-fiche {
-                    font-size: 18px;
-                    font-weight: 500;
-                }
-                .badges {
-                    margin-top: 1em;
-                    display:flex;
-                    gap: 1em;
-                }
-            }
-            .col-droite {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                .author {
-                    display: flex;
-                    flex-direction:row;
-                    gap: 10px;
-                    align-items: center;
-                    justify-content: flex-end;
-                }
-                .author-name {
-                    width: 93px;
-                    // height: 52px;
-                    font-size: 18px;
-                    font-weight: 500;
-                    color: $color-primary;
-                    text-align: end;
-                }
-                .author-picture {
-                    width: 64px;
-                    height: 64px;
-                    border-radius: 50%;
-                    background-color: $color-dark-grey;
-                }
-            }
+        justify-content: space-between;
+        .title-fiche {
+          font-size: 36px;
+          font-weight: 500;
         }
-
-        .description-fiche {
-            display: flex;
-            gap: 3em;
-            padding-top: 2em;
+        .localisation-fiche {
+          font-size: 18px;
+          font-weight: 500;
         }
+        .badges {
+          margin-top: 1em;
+          display: flex;
+          gap: 1em;
+        }
+      }
+      .col-droite {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .author {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+          align-items: center;
+          justify-content: flex-end;
+        }
+        .author-name {
+          width: 93px;
+          // height: 52px;
+          font-size: 18px;
+          font-weight: 500;
+          color: $color-primary;
+          text-align: end;
+        }
+        .author-picture {
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          background-color: $color-dark-grey;
+        }
+      }
     }
+
+    .description-fiche {
+      display: flex;
+      gap: 3em;
+      padding-top: 2em;
+    }
+  }
 }
 
 @media screen and (max-width: $breakpoint-mobile) {
-    .page-fiche {
-        .container-fiche {
-            .header-fiche {
-                flex-direction: column;
-                .col-gauche {
-                    .title-fiche {
-                        font-size: 18px;
-                    }
-                    .localisation-fiche {
-                        padding-top: 10px;
-                        font-size: 14px;
-                    }
-                    .badges {
-                        margin-top: 0.5em;
-                    }
-                }
-                .col-droite {
-                    flex-direction: row-reverse;
-                    align-items: center;
-                    .author-name {
-                        font-size: 12px;
-                    }
-                    .author-picture {
-                        width: 32px;
-                        height: 32px;
-                    }
-                }
-            }
-            .description-fiche {
-                flex-direction: column;
-                gap:1em;
-            }
+  .page-fiche {
+    .container-fiche {
+      .header-fiche {
+        flex-direction: column;
+        .col-gauche {
+          .title-fiche {
+            font-size: 18px;
+          }
+          .localisation-fiche {
+            padding-top: 10px;
+            font-size: 14px;
+          }
+          .badges {
+            margin-top: 0.5em;
+          }
         }
+        .col-droite {
+          flex-direction: row-reverse;
+          align-items: center;
+          .author-name {
+            font-size: 12px;
+          }
+          .author-picture {
+            width: 32px;
+            height: 32px;
+          }
+        }
+      }
+      .description-fiche {
+        flex-direction: column;
+        gap: 1em;
+      }
     }
+  }
 }
