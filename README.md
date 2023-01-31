@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Scripts disponibles
 
 A lancer depuis le répertoire de base du projet.
 
@@ -10,11 +10,12 @@ A lancer depuis le répertoire de base du projet.
 
  `yarn start` : Démarre le serveur en mode développement. Le site est alors accessible à l'adresse [http://localhost:3000](http://localhost:3000). La page se recharge automatiquement après chaque modif des sources. Les erreurs Lint sont affichées dans la console.
 
-`yarn test` : Démarre les tests Jest en mode interactif.
+`yarn test` : Démarre les tests Jest en mode interactif. Il y a 11 tests distribués en deux suites
+- Tests du routeur et des routages
+- Tests des pages et des composants applicatifs
 
 `yarn build` : Génère l'application optimisée et minifiée pour la production
 
 `yarn global add serve` ou `npm install -g serve` : Permet d'installer un serveur pour tester le build en mode production.
 
 `serve -s build < -l port >` : Permet de démarrer le build de production (port 3000 par défaut, option `-l port` pour forcer un port différent.
-
